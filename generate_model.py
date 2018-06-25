@@ -123,7 +123,6 @@ def main():
     print("{} value counts:".format(CLASS_FIELD))
     print(population[CLASS_FIELD].value_counts())
     print()
-    exit()
 
     print("Creating sample with maximum {:,.0f} rows per class...".format(args.max_sample))
     sample = get_sample(population, args.max_sample)
