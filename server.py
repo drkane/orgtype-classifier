@@ -9,11 +9,6 @@ import bottle
 
 app = bottle.default_app()
 
-# get model location from environment variable if set
-if os.environ.get("PREDICT_MODEL"):
-    app.config["predict_model"] = fetch_model(os.environ.get("PREDICT_MODEL"))
-
-
 def fetch_model(location):
     if location.endswith(".gz"):
         a = gzip.open(location, 'rb')
@@ -21,6 +16,11 @@ def fetch_model(location):
         a = open(location, 'rb')
     with a:
         return pickle.load(a)
+
+# get model location from environment variable if set
+if os.environ.get("PREDICT_MODEL"):
+    app.config["predict_model"] = fetch_model(os.environ.get("PREDICT_MODEL"))
+
 
 @app.route('/predict_proba')
 def get_prediction_proba():

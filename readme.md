@@ -48,3 +48,4 @@ has two endpoints:
 2. `dokku domains:enable org-type`
 3. `dokku domains:add org-type orgtype.findthatcharity.uk`
 4. `dokku config:set --no-restart org-type DOKKU_LETSENCRYPT_EMAIL=your@email.tld`
+5. `dokku config:set org-type PREDICT_MODEL=model.pkl.gz`
