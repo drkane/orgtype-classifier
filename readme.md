@@ -40,3 +40,11 @@ has two endpoints:
   `XXXXXXX`. If just one `q=` is given then the server just returns the string
   of the most likely one. If more than one `q=` is provided then a JSON object 
   with name:class pairs is returned instead.
+
+
+# Setup with dokku
+
+1. `dokku apps:create org-type`
+2. `dokku domains:enable org-type`
+3. `dokku domains:add org-type orgtype.findthatcharity.uk`
+4. `dokku config:set --no-restart org-type DOKKU_LETSENCRYPT_EMAIL=your@email.tld`
